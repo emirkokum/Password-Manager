@@ -19,5 +19,6 @@ namespace Business.Constants
         internal static User UserNotFound;
         internal static string SuccessfulLogin;
         internal static string UserAlreadyExists;
+        internal static string? AuthorizationDenied;
     }
 }
