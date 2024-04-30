@@ -1,4 +1,6 @@
-﻿using System.Data.SQLite;
+﻿using System;
+using System.Data.SQLite;
+using System.IO;
 
 namespace DataAcceess.Concrete.Sqlite
 {
@@ -23,7 +25,7 @@ namespace DataAcceess.Concrete.Sqlite
                     connection.Open();
                     string createCategoryTableQuery = @"
                     CREATE TABLE IF NOT EXISTS Categories (
-                        Id INTEGER PRIMARY KEY,
+                        Id INTEGER PRIMARY KEY AUTOINCREMENT,
                         Name TEXT
                     );
                 ";
@@ -33,8 +35,8 @@ namespace DataAcceess.Concrete.Sqlite
                     }
 
                     string createPasswordTableQuery = @"
-                    CREATE TABLE IF NOT EXISTS Passwords (
-                        Id INTEGER PRIMARY KEY,
+                    CREATE TABLE IF NOT EXISTS Records (
+                        Id INTEGER PRIMARY KEY AUTOINCREMENT,
                         Title TEXT,
                         Username TEXT,
                         Password TEXT,
@@ -47,6 +49,22 @@ namespace DataAcceess.Concrete.Sqlite
                     {
                         createPasswordTableCommand.ExecuteNonQuery();
                     }
+
+                    string createMainUserTableQuery = @"
+                    CREATE TABLE IF NOT EXISTS MainUser (
+                        Id INTEGER PRIMARY KEY AUTOINCREMENT,
+                        FirstName TEXT,
+                        LastName TEXT,
+                        Email TEXT,
+                        PasswordSalt BLOB,
+                        PasswordHash BLOB,
+                        Status INTEGER
+                        );";
+                    using (SQLiteCommand createMainUserTableCommand = new SQLiteCommand(createMainUserTableQuery, connection))
+                    {
+                        createMainUserTableCommand.ExecuteNonQuery();
+                    }
+
 
                     connection.Close();
                 }
