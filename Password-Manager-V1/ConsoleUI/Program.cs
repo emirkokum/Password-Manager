@@ -12,7 +12,7 @@ public class Program
         IRecordService recordManager = new RecordManager(new EfRecordDal());
 
         Record record1 = new Record 
-        { CategoryId=1,Notes="gizli12323",Password="emir1123345",Title="XCOm",Username="emirkokum"
+        {CategoryId=2,Notes="Gorkemgottenyermi123",Password="yeryemezbilmem",Title="ozztech",Username="gorkempala"
         };
         recordManager.Add(record1);
     }
