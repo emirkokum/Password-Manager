@@ -12,12 +12,15 @@ public class Program
         ICategoryService categoryManager = new CategoryManager(new EfCategoryDal());
         IRecordService recordManager = new RecordManager(new EfRecordDal());
 
-        foreach (var item in recordManager.GetAll().Data)
-        {
-            Console.WriteLine(item.Username);
-            Console.WriteLine(item.Password);
-            Console.WriteLine(item.Id);
-        }
+        //foreach (var item in recordManager.GetAll().Data)
+        //{
+        //    Console.WriteLine(item.Username);
+        //    Console.WriteLine(item.Password);
+        //    Console.WriteLine(item.Id);
+        //}
+
+        DatabaseCreator databaseCreator = new DatabaseCreator();
+        databaseCreator.CreateDatabase();
         
     }
 }
