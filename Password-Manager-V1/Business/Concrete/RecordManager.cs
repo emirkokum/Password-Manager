@@ -26,9 +26,9 @@ namespace Business.Concrete
             return new SuccessResult(Messages.EntityAdded);
         }
 
-        public IResult Delete(Record record)
+        public IResult Delete(int id)
         {
-            _recordDal.Delete(record);
+            _recordDal.Delete(_recordDal.Get(r => r.Id == id));
             return new SuccessResult(Messages.EntityDeleted);
         }
 

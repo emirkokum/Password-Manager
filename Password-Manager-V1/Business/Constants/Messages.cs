@@ -9,9 +9,9 @@ namespace Business.Constants
     public class Messages
     {
         public static string EntityAdded = "Entity added to the system.";
-        internal static string EntityDeleted;
-        internal static string EntitiesListed;
-        internal static string EntityUpdated;
-        internal static string EntityUpdateError;
+        public static string EntityDeleted;
+        public static string EntitiesListed;
+        public static string EntityUpdated;
+        public static string EntityUpdateError;
     }
 }
