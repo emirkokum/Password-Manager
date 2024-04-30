@@ -32,7 +32,6 @@ namespace DataAcceess.Concrete.Sqlite
                         createCategoryTableCommand.ExecuteNonQuery();
                     }
 
-                    // Şifre tablosunu oluşturma
                     string createPasswordTableQuery = @"
                     CREATE TABLE IF NOT EXISTS Passwords (
                         Id INTEGER PRIMARY KEY,

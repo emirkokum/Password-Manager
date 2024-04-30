@@ -4,7 +4,7 @@ using System.Text;
 
 namespace DataAccess.Concrete.Sqlite
 {
-    internal class DatabaseCreation
+    public class DatabaseCreation
     {
     }
 }

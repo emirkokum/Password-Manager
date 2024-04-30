@@ -1,5 +1,6 @@
 ﻿using Business.Abstract;
 using Business.Concrete;
+using Core.Utilities.Results;
 using DataAcceess.Concrete.Sqlite;
 using DataAccess.Concrete.EntityFramework;
 using Entities.Concrete;
@@ -11,9 +12,12 @@ public class Program
         ICategoryService categoryManager = new CategoryManager(new EfCategoryDal());
         IRecordService recordManager = new RecordManager(new EfRecordDal());
 
-        Record record1 = new Record 
-        {CategoryId=2,Notes="Gorkemgottenyermi123",Password="yeryemezbilmem",Title="ozztech",Username="gorkempala"
-        };
-        recordManager.Add(record1);
+        foreach (var item in recordManager.GetAll().Data)
+        {
+            Console.WriteLine(item.Username);
+            Console.WriteLine(item.Password);
+            Console.WriteLine(item.Id);
+        }
+        
     }
 }
