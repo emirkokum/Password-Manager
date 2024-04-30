@@ -1,4 +1,5 @@
-﻿using DataAcceess.Concrete.Sqlite;
+﻿using Core.Entities.Concrete;
+using DataAcceess.Concrete.Sqlite;
 using Entities.Concrete;
 using Microsoft.EntityFrameworkCore;
 using System;
@@ -20,5 +21,8 @@ namespace DataAccess.Concrete.EntityFramework
 
         public DbSet<Record> Records { get; set; }
         public DbSet<Category> Categories { get; set; }
+        public DbSet<User> Users { get; set; }
+        public DbSet<OperationClaim> OperationClaims { get; set; }
+        public DbSet<UserOperationClaim> UserOperationClaims { get; set; }
     }
 }

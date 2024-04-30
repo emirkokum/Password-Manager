@@ -23,18 +23,18 @@ namespace DataAcceess.Concrete.Sqlite
                 using (SQLiteConnection connection = new SQLiteConnection($"Data Source={databasePath}"))
                 {
                     connection.Open();
-                    string createCategoryTableQuery = @"
+                    string createCategoriesTableQuery = @"
                     CREATE TABLE IF NOT EXISTS Categories (
                         Id INTEGER PRIMARY KEY AUTOINCREMENT,
                         Name TEXT
                     );
                 ";
-                    using (SQLiteCommand createCategoryTableCommand = new SQLiteCommand(createCategoryTableQuery, connection))
+                    using (SQLiteCommand createCategoriesTableCommand = new SQLiteCommand(createCategoriesTableQuery, connection))
                     {
-                        createCategoryTableCommand.ExecuteNonQuery();
+                        createCategoriesTableCommand.ExecuteNonQuery();
                     }
 
-                    string createPasswordTableQuery = @"
+                    string createRecordsTableQuery = @"
                     CREATE TABLE IF NOT EXISTS Records (
                         Id INTEGER PRIMARY KEY AUTOINCREMENT,
                         Title TEXT,
@@ -45,13 +45,13 @@ namespace DataAcceess.Concrete.Sqlite
                         CategoryId INTEGER,
                         FOREIGN KEY(CategoryId) REFERENCES Categories(Id)
                     );";
-                    using (SQLiteCommand createPasswordTableCommand = new SQLiteCommand(createPasswordTableQuery, connection))
+                    using (SQLiteCommand createRecordsTableCommand = new SQLiteCommand(createRecordsTableQuery, connection))
                     {
-                        createPasswordTableCommand.ExecuteNonQuery();
+                        createRecordsTableCommand.ExecuteNonQuery();
                     }
 
-                    string createMainUserTableQuery = @"
-                    CREATE TABLE IF NOT EXISTS MainUser (
+                    string createMainUsersTableQuery = @"
+                    CREATE TABLE IF NOT EXISTS MainUsers (
                         Id INTEGER PRIMARY KEY AUTOINCREMENT,
                         FirstName TEXT,
                         LastName TEXT,
@@ -60,9 +60,34 @@ namespace DataAcceess.Concrete.Sqlite
                         PasswordHash BLOB,
                         Status INTEGER
                         );";
-                    using (SQLiteCommand createMainUserTableCommand = new SQLiteCommand(createMainUserTableQuery, connection))
+                    using (SQLiteCommand createMainUsersTableCommand = new SQLiteCommand(createMainUsersTableQuery, connection))
                     {
-                        createMainUserTableCommand.ExecuteNonQuery();
+                        createMainUsersTableCommand.ExecuteNonQuery();
+                    }
+
+                    string createOperationClaimsTableQuery = @"
+                    CREATE TABLE IF NOT EXISTS OperationClaims (
+                        Id INTEGER PRIMARY KEY AUTOINCREMENT,
+                        Name TEXT
+                        );";
+
+                    using (SQLiteCommand createOperationClaimsTableCommand = new SQLiteCommand(createOperationClaimsTableQuery, connection))
+                    {
+                        createOperationClaimsTableCommand.ExecuteNonQuery();
+                    }
+
+                    string createUserOperationClaimsTableQuery = @"
+                    CREATE TABLE IF NOT EXISTS UserOperationClaims (
+                        Id INTEGER PRIMARY KEY AUTOINCREMENT,
+                        UserId INTEGER,
+                        OperationClaimId INTEGER,
+                        FOREIGN KEY(UserId) REFERENCES Users(Id),
+                        FOREIGN KEY(OperationClaimId) REFERENCES OperationClaims(Id)
+                        );";
+
+                    using (SQLiteCommand createUserOperationClaimsTableCommand = new SQLiteCommand(createUserOperationClaimsTableQuery, connection))
+                    {
+                        createUserOperationClaimsTableCommand.ExecuteNonQuery();
                     }
 
 

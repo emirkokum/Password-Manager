@@ -1,4 +1,5 @@
-﻿using System;
+﻿using Core.Entities.Concrete;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
@@ -13,5 +14,10 @@ namespace Business.Constants
         public static string EntitiesListed;
         public static string EntityUpdated;
         public static string EntityUpdateError;
+        internal static string UserRegistered;
+        internal static User PasswordError;
+        internal static User UserNotFound;
+        internal static string SuccessfulLogin;
+        internal static string UserAlreadyExists;
     }
 }
