@@ -50,8 +50,8 @@ namespace DataAcceess.Concrete.Sqlite
                         createRecordsTableCommand.ExecuteNonQuery();
                     }
 
-                    string createMainUsersTableQuery = @"
-                    CREATE TABLE IF NOT EXISTS MainUsers (
+                    string createUsersTableQuery = @"
+                    CREATE TABLE IF NOT EXISTS Users (
                         Id INTEGER PRIMARY KEY AUTOINCREMENT,
                         FirstName TEXT,
                         LastName TEXT,
@@ -60,9 +60,9 @@ namespace DataAcceess.Concrete.Sqlite
                         PasswordHash BLOB,
                         Status INTEGER
                         );";
-                    using (SQLiteCommand createMainUsersTableCommand = new SQLiteCommand(createMainUsersTableQuery, connection))
+                    using (SQLiteCommand createUsersTableCommand = new SQLiteCommand(createUsersTableQuery, connection))
                     {
-                        createMainUsersTableCommand.ExecuteNonQuery();
+                        createUsersTableCommand.ExecuteNonQuery();
                     }
 
                     string createOperationClaimsTableQuery = @"

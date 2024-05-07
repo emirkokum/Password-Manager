@@ -18,6 +18,7 @@ var builder = WebApplication.CreateBuilder(args);
 // Add services to the container.
 
 builder.Services.AddControllers();
+
 builder.Services.AddCors();
 
 //Jwt configuration starts here
@@ -73,8 +74,7 @@ if (app.Environment.IsDevelopment())
 }
 
 
-//app.UseCors(builder => builder.WithOrigins("http:localhost"));
-
+app.UseCors(builder => builder.WithOrigins("http://localhost:4200").AllowAnyHeader());
 
 app.UseHttpsRedirection();
 
