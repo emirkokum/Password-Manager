@@ -72,5 +72,38 @@ namespace WebAPI.Controllers
             }
             return BadRequest(result.Message);
         }
+
+        [HttpGet("getrecorddetails")]
+        public IActionResult GetRecordDetails()
+        {
+            var result = _recordService.GetRecordDetails();
+            if (result.Success)
+            {
+                return Ok(result);
+            }
+            return BadRequest(result.Message);
+        }
+
+        [HttpGet("getrecorddetailsbycategoryid")]
+        public IActionResult GetRecordDetailsByCategoryId(int categoryId)
+        {
+            var result = _recordService.GetRecordDetailsByCategoryId(categoryId);
+            if (result.Success)
+            {
+                return Ok(result);
+            }
+            return BadRequest(result.Message);
+        }
+
+        [HttpGet("getrecorddetailsbyid")]
+        public IActionResult GetRecordDetailsById(int id)
+        {
+            var result = _recordService.GetRecordDetailsById(id);
+            if (result.Success)
+            {
+                return Ok(result);
+            }
+            return BadRequest(result.Message);
+        }
     }
 }
