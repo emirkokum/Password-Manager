@@ -18,7 +18,7 @@ namespace DataAccess.Concrete.EntityFramework
             {
                 var result = from r in context.Records
                              join c in context.Categories on r.CategoryId equals c.Id
-                             select new RecordDto { Id = r.Id,Username=r.Username ,CategoryName= c.Name ,Notes=r.Notes,Password=r.Password ,Title=r.Title,Url=r.Url}; 
+                             select new RecordDto { Id = r.Id,UserName =r.Username ,CategoryName= c.Name ,Notes=r.Notes,Password=r.Password ,Title=r.Title,Url=r.Url}; 
                 return result.ToList();
             }  
         }
@@ -30,7 +30,7 @@ namespace DataAccess.Concrete.EntityFramework
                 var result = from r in context.Records
                              join c in context.Categories on r.CategoryId equals c.Id
                              where r.Id == id
-                             select new RecordDto { Id = r.Id, Username = r.Username, CategoryName = c.Name, Notes = r.Notes, Password = r.Password, Title = r.Title, Url = r.Url };
+                             select new RecordDto { Id = r.Id, UserName = r.Username, CategoryName = c.Name, Notes = r.Notes, Password = r.Password, Title = r.Title, Url = r.Url };
                 return result.ToList();
             }
         }
@@ -42,7 +42,7 @@ namespace DataAccess.Concrete.EntityFramework
                 var result = from r in context.Records
                              join c in context.Categories on r.CategoryId equals c.Id
                              where r.CategoryId == categoryId
-                             select new RecordDto { Id = r.Id, Username = r.Username, CategoryName = c.Name, Notes = r.Notes, Password = r.Password, Title = r.Title, Url = r.Url };
+                             select new RecordDto { Id = r.Id, UserName = r.Username, CategoryName = c.Name, Notes = r.Notes, Password = r.Password, Title = r.Title, Url = r.Url };
                 return result.ToList();
             }
         }
