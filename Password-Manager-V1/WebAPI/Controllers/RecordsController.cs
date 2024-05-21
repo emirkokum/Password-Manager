@@ -52,9 +52,9 @@ namespace WebAPI.Controllers
         }
 
         [HttpPost("delete")]
-        public IActionResult Delete(int id)
+        public IActionResult Delete(Record record)
         {
-            var result = _recordService.Delete(id);
+            var result = _recordService.Delete(record);
             if (result.Success)
             {
                 return Ok(result);
