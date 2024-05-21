@@ -27,12 +27,20 @@ namespace DataAcceess.Concrete.Sqlite
                     CREATE TABLE IF NOT EXISTS Categories (
                         Id INTEGER PRIMARY KEY AUTOINCREMENT,
                         Name TEXT
-                    );
-                ";
+                    );";
                     using (SQLiteCommand createCategoriesTableCommand = new SQLiteCommand(createCategoriesTableQuery, connection))
                     {
                         createCategoriesTableCommand.ExecuteNonQuery();
                     }
+
+                    string insertCategoryQuery = @"
+                    INSERT INTO Categories (Name)
+                    VALUES ('Default Folder');";
+                    using (SQLiteCommand insertCategoryCommand = new SQLiteCommand(insertCategoryQuery, connection))
+                    {
+                        insertCategoryCommand.ExecuteNonQuery();
+                    }
+
 
                     string createRecordsTableQuery = @"
                     CREATE TABLE IF NOT EXISTS Records (

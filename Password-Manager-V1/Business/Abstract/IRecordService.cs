@@ -12,7 +12,7 @@ namespace Business.Abstract
     public interface IRecordService
     {
         IResult Add(Record record);
-        IResult Delete(int id);
+        IResult Delete(Record record);
         IResult Update(Record record);
         IDataResult<List<Record>> GetAll();
         IDataResult<List<Record>> GetByCategoryId(int id);
