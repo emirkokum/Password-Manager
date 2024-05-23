@@ -6,7 +6,7 @@ namespace DataAcceess.Concrete.Sqlite
 {
     public class DatabaseCreator
     {
-        public static string selectedPath = "C:\\Users\\emir_\\MyDatabase";
+        public static string selectedPath = "C:\\Users\\admin\\MyDatabase";
         string databasePath;
 
         public DatabaseCreator()

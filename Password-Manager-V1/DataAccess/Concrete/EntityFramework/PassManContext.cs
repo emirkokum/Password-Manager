@@ -16,7 +16,7 @@ namespace DataAccess.Concrete.EntityFramework
 
         protected override void OnConfiguring(DbContextOptionsBuilder optionsBuilder) 
         {
-            optionsBuilder.UseSqlite("Data Source=C:\\Users\\emir_\\MyDatabase\\mydatabase.db");
+            optionsBuilder.UseSqlite("Data Source=C:\\Users\\admin\\MyDatabase\\mydatabase.db");
         }
 
         public DbSet<Record> Records { get; set; }
